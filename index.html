@@ -28,10 +28,21 @@
 	var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 	var material = new THREE.MeshPhongMaterial( { color: 0xff00ff } );
 	var cube = new THREE.Mesh( geometry, material );
+	cube.position.x = 1;
+
 	scene.add( cube );
 
+
+	var geometry2 = new THREE.BoxGeometry( 2, 2, 2 );
+	var material2 = new THREE.MeshPhongMaterial( { color: 0x00ff00 } );
+	var cube2 = new THREE.Mesh( geometry2, material2 );
+	cube2.position.x = -2;
+	cube2.position.z = -3;
+
+	scene.add( cube2 );
+
+
 	camera.position.z = 5;
-	
 	
 	addSpotLight(0, 5, 0);
 	addSpotLight(5, 0, 0);
@@ -58,6 +69,11 @@
 
 		cube.rotation.x += 0.01;
 		cube.rotation.z += 0.01;
+
+		cube2.rotation.x += 0.005;
+		cube2.rotation.z += 0.005;
+
+		//camera.rotate.x += 0.01;
 
 		renderer.render( scene, camera );
 	}
